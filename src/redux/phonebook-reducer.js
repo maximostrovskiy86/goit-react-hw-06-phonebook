@@ -4,7 +4,7 @@ import types from './phonebook-types';
 const items = (state = [], {type, payload}) => {
 
     const isContactExist = () => {
-        alert(`${payload.name} is already in contacts.`)
+        alert(`${payload.name} is already in contacts!`);
         return [...state];
     }
 
@@ -12,7 +12,7 @@ const items = (state = [], {type, payload}) => {
         case types.ADD:
             console.log(payload)
             const isFind = state.some(item => item.name.toLowerCase() === payload.name.toLowerCase());
-            return  isFind ?  isContactExist() : [...state, payload];
+            return isFind ? isContactExist() : [...state, payload];
         case types.DELETE:
             return state.filter(contact => contact.id !== payload);
         default:
@@ -24,7 +24,6 @@ const filter = (state = '', {type, payload}) => {
     switch (type) {
         case types.CHANGE_FILTER:
             return payload;
-
         default:
             return state;
     }
@@ -33,4 +32,4 @@ const filter = (state = '', {type, payload}) => {
 export default combineReducers({
     items,
     filter,
-})
+});

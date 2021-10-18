@@ -4,7 +4,6 @@ import {connect} from "react-redux";
 import contactsActions from "../../redux/phonebook-actions";
 import style from "./Filter.module.css";
 
-
 const Filter = ({filter, setFilter}) => {
     return (
         <>
@@ -32,7 +31,7 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const mapStateToProps = state => ({
-    value: state.contacts.filter
+    value: state.contacts.filter,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);
